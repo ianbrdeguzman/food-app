@@ -3,6 +3,7 @@ package com.foodapp;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -13,6 +14,15 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "FoodApp";
+  }
+
+  /**
+   * React Navigation additional configuration to step to properly work on Android devices
+   * https://reactnavigation.org/docs/getting-started/
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 
   /**
