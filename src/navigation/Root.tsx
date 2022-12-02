@@ -21,7 +21,11 @@ export function Root() {
       {isSignedIn ? (
         <RootStack.Screen name="Main" component={MainScreen} />
       ) : (
-        <RootStack.Screen name="Authentication" component={Authentication} />
+        <RootStack.Screen name="Authentication">
+          {props => (
+            <Authentication {...props} signIn={() => setIsSignedIn(true)} />
+          )}
+        </RootStack.Screen>
       )}
     </RootStack.Navigator>
   );
