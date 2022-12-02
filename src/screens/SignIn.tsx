@@ -1,10 +1,17 @@
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {AuthenticationStackParamList} from '../navigation/Authentication';
 
-export function SignInScreen() {
+interface Props
+  extends NativeStackScreenProps<AuthenticationStackParamList, 'SignIn'> {
+  signIn: () => void;
+}
+
+export function SignInScreen({signIn}: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome</Text>
-      <Pressable style={styles.button} onPress={() => console.log('pressed')}>
+      <Pressable style={styles.button} onPress={signIn}>
         <Text>Sign In</Text>
       </Pressable>
     </View>
