@@ -1,11 +1,27 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {StyleSheet} from 'react-native';
+import {AccountScreen} from './Account';
+import {HomeScreen} from './Home';
+import {SearchScreen} from './Search';
 
-// Main screen is tabs navigation
+type MainTabsParamList = {
+  Home: undefined;
+  Search: undefined;
+  Account: undefined;
+};
+
+const Tab = createBottomTabNavigator<MainTabsParamList>();
+
 export function MainScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Main Screen</Text>
-    </View>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Account" component={AccountScreen} />
+    </Tab.Navigator>
   );
 }
 
